@@ -34,6 +34,7 @@ brew 'ruby'
 
 # Utilities
 brew 'legit'
+brew 'github/gh/gh'
 
 # Apps
 cask 'aerial'

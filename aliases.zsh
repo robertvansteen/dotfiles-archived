@@ -58,6 +58,9 @@ alias flush="dscacheutil -flushcache"
 # Colorls
 alias lc='colorls -lA --sd'
 
+# Bat
+alias cat="bat"
+
 # Show contents of the directory after changing to it
 function cd () {
     builtin cd "$1"
