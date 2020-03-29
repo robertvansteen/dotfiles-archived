@@ -72,6 +72,8 @@ cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 cask 'font-hack-nerd-font'
 cask 'font-inter'
+cask 'font-jetbrains-mono'
+cask 'font-fira-code'
 
 # Mac App Store
 mas 'The Unarchiver', id: 425424353
