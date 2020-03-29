@@ -45,3 +45,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
+
+# Colorls
+alias lc='colorls -lA --sd'
