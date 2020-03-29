@@ -20,6 +20,10 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Remove quicklook libraries from quarantine
+# https://github.com/sindresorhus/quick-look-plugins
+xattr -d -r com.apple.quarantine ~/Library/QuickLook
+
 # Make ZSH the default shell environment
 sudo chsh -s $(which zsh)
 
