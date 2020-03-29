@@ -19,6 +19,15 @@ alias artisan="php artisan"
 alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
 alias reload="source $HOME/.zshrc"
 
+# Always copy contents of directories (r)ecursively and explain (v) what was done
+alias cp='cp -rv'
+
+# Explain (v) what was done when moving a file
+alias mv='mv -v'
+
+# Create any non-existent (p)arent directories and explain (v) what was done
+alias mkdir='mkdir -pv'
+
 # Applications 
 alias preview="open -a '$PREVIEW'"
 alias safari="open -a safari"
@@ -48,3 +57,9 @@ alias flush="dscacheutil -flushcache"
 
 # Colorls
 alias lc='colorls -lA --sd'
+
+# Show contents of the directory after changing to it
+function cd () {
+    builtin cd "$1"
+    ls -ACF
+}
