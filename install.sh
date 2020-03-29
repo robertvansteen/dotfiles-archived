@@ -20,6 +20,10 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Install legit aliases
+# https://frostming.github.io/legit/
+legit --install
+
 # Remove quicklook libraries from quarantine
 # https://github.com/sindresorhus/quick-look-plugins
 xattr -d -r com.apple.quarantine ~/Library/QuickLook
@@ -32,6 +36,7 @@ curl -sS https://getcomposer.org/installer | php
 mv -f composer.phar /usr/local/bin/composer
 
 # Install global Composer packages
+rm ~/.composer/composer.lock && rm -r ~/.composer/vendor
 /usr/local/bin/composer global require laravel/installer laravel/valet laravel/vapor-cli
 
 # Install Laravel Valet

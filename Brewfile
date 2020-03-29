@@ -32,6 +32,9 @@ brew 'node'
 brew 'redis'
 brew 'ruby'
 
+# Utilities
+brew 'legit'
+
 # Apps
 cask 'aerial'
 cask 'alfred'
