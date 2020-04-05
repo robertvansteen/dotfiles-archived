@@ -33,9 +33,6 @@ echo 'y' | legit --install
 # https://github.com/sindresorhus/quick-look-plugins
 xattr -d -r com.apple.quarantine ~/Library/QuickLook
 
-# Make ZSH the default shell environment
-sudo chsh -s $(which zsh)
-
 # Install Composer
 curl -sS https://getcomposer.org/installer | php
 mv -f composer.phar /usr/local/bin/composer
@@ -49,6 +46,9 @@ sudo $HOME/.composer/vendor/bin/valet install
 
 # Install colorls
 gem install colorls
+
+# Make ZSH the default shell environment
+sudo chsh -s $(which zsh)
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
