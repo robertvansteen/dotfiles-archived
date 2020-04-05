@@ -4,9 +4,13 @@ bot "Hi! I'm going to install tooling and tweak your system settings."
 
 # Ask for the administrator password upfront
 bot "Just going to need your password to get started."
-sudo -v
+# Keep-alive: update existing `sudo` timestamp until script has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+line
 
-bot "All good, let's go!"
+# Make sure macOS is fully up to date before doing anything
+bot "Let's see if we need to run any updates for your system."
+sudo softwareupdate --install --all
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
@@ -22,7 +26,7 @@ brew bundle
 
 # Install legit aliases
 # https://frostming.github.io/legit/
-legit --install
+echo 'y' | legit --install
 
 # Remove quicklook libraries from quarantine
 # https://github.com/sindresorhus/quick-look-plugins
@@ -46,14 +50,26 @@ sudo $HOME/.composer/vendor/bin/valet install
 gem install colorls
 
 # Install zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo rm -r $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # Install zsh autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+sudo rm -r $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+# Install zsh you-should-use
+sudo rm -r $HOME/.oh-my-zsh/custom/plugins/you-should-use
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $HOME/.oh-my-zsh/custom/plugins/you-should-use
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+
+# Set up git config
+rm -f $HOME/.gitconfig
+rm -f $HOME/.gitignore_global
+ln -s $HOME/dotfiles/git/.gitconfig $HOME/.gitconfig
+ln -s $HOME/dotfiles/git/.gitignore_global $HOME/.gitignore_global
 
 # Set macOS preferences
 # We will run this last because this will reload the shell

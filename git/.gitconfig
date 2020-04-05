@@ -1,0 +1,25 @@
+[credential]
+	helper = osxkeychain
+[user]
+	email = hello@rovansteen.nl 
+	name = Robert van Steen 
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg
+[commit]
+	gpgsign = true
+[push]
+	default = current
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[github]
+	user = rovansteen
+[pull]
+	rebase = true
+[hub]
+	host = github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

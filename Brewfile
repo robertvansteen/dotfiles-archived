@@ -35,6 +35,7 @@ brew 'ruby'
 # Utilities
 brew 'legit'
 brew 'github/gh/gh'
+brew 'tldr'
 
 # Apps
 cask 'aerial'
@@ -55,10 +56,10 @@ cask 'slack'
 cask 'sublime-text'
 cask 'transmit'
 cask 'vagrant'
+cask 'imageoptim'
 
 # Quicklook
 cask 'qlcolorcode'
-cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'quicklook-csv'
 cask 'qlstephen'
