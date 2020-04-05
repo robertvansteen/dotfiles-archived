@@ -23,3 +23,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[alias]
+	sync = !/usr/local/bin/legit sync
+	publish = !/usr/local/bin/legit publish
+	unpublish = !/usr/local/bin/legit unpublish
+	undo = !/usr/local/bin/legit undo
+	branches = !/usr/local/bin/legit branches

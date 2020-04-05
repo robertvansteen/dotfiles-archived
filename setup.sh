@@ -4,6 +4,7 @@ bot "Hi! I'm going to install tooling and tweak your system settings."
 
 # Ask for the administrator password upfront
 bot "Just going to need your password to get started."
+sudo -v
 # Keep-alive: update existing `sudo` timestamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 line
@@ -49,21 +50,21 @@ sudo $HOME/.composer/vendor/bin/valet install
 # Install colorls
 gem install colorls
 
-# Install zsh-syntax-highlighting
-sudo rm -r $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-
-# Install zsh autosuggestions
-sudo rm -r $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
-# Install zsh you-should-use
-sudo rm -r $HOME/.oh-my-zsh/custom/plugins/you-should-use
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $HOME/.oh-my-zsh/custom/plugins/you-should-use
-
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+ln -s ./dotfiles/zsh/.zshrc $HOME/.zshrc
+
+# Install zsh-syntax-highlighting
+rm -r ./zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./zsh/plugins/zsh-syntax-highlighting
+
+# Install zsh autosuggestions
+rm -r ./zsh/plugins/zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-autosuggestions
+
+# Install zsh you-should-use
+rm -r ./zsh/plugins/you-should-use
+git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ./zsh/plugins/you-should-use
 
 # Set up git config
 rm -f $HOME/.gitconfig
