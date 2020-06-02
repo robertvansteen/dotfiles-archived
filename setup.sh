@@ -38,42 +38,46 @@ curl -sS https://getcomposer.org/installer | php
 mv -f composer.phar /usr/local/bin/composer
 
 # Install global Composer packages
-rm $HOME/.composer/composer.lock && rm -r $HOME/.composer/vendor
-/usr/local/bin/composer global require laravel/installer laravel/valet laravel/vapor-cli
+rm $HOME/.composer/composer.lock > /dev/null 2>&1
+rm -r $HOME/.composer/vendor > /dev/null 2>&1
+composer global require laravel/installer laravel/valet laravel/vapor-cli
 
 # Install Laravel Valet
 sudo $HOME/.composer/vendor/bin/valet install
 
 # Install colorls
-gem install colorls
+/usr/local/opt/ruby/bin/gem install colorls
 
 # Make ZSH the default shell environment
 sudo chsh -s $(which zsh)
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-ln -s ./dotfiles/zsh/.zshrc $HOME/.zshrc
+rm -rf $HOME/.zshrc > /dev/null 2>&1
+ln -sf ./dotfiles/zsh/.zshrc $HOME/.zshrc
 
 # Install zsh-syntax-highlighting
-rm -r ./zsh/plugins/zsh-syntax-highlighting
+rm -rf ./zsh/plugins/zsh-syntax-highlighting > /dev/null 2>&1
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./zsh/plugins/zsh-syntax-highlighting
 
 # Install zsh autosuggestions
-rm -r ./zsh/plugins/zsh-autosuggestions
-git clone git://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-autosuggestions
+# rm -rf ./zsh/plugins/zsh-autosuggestions > /dev/null 2>&1
+# git clone git://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-autosuggestions
 
 # Install zsh you-should-use
-rm -r ./zsh/plugins/you-should-use
+rm -rf ./zsh/plugins/you-should-use > /dev/null 2>&1
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ./zsh/plugins/you-should-use
 
 # Set up git config
-rm -f $HOME/.gitconfig
-rm -f $HOME/.gitignore_global
+rm -f $HOME/.gitconfig > /dev/null 2>&1
+rm -f $HOME/.gitignore_global > /dev/null 2>&1
 ln -s $HOME/dotfiles/git/.gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/git/.gitignore_global $HOME/.gitignore_global
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
-source .macos
+# source .macos
 
 bot "All done, enjoy!"

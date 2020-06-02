@@ -1,3 +1,6 @@
+# https://github.com/ohmyzsh/ohmyzsh/issues/6835
+ZSH_DISABLE_COMPFIX=true
+
 # Path to cloned dotfiles repo
 export DOTFILES=$HOME/dotfiles
 

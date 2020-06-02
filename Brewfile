@@ -22,6 +22,7 @@ brew 'tree' # List directories in a tree structure
 brew 'zlib' # Needed for Memcached
 brew 'zsh'
 brew 'zsh-completions'
+brew 'svn' # Needed for fonts, see: https://github.com/Homebrew/homebrew-cask/issues/80695
 
 # Development
 brew 'php'
@@ -34,7 +35,6 @@ brew 'ruby'
 
 # Utilities
 brew 'legit'
-brew 'github/gh/gh'
 brew 'tldr'
 
 # Apps
@@ -50,13 +50,14 @@ cask 'google-chrome'
 cask 'gpg-suite'
 cask 'postico'
 cask 'phpstorm'
-cask 'sequel-pro'
 cask 'skype'
 cask 'slack'
 cask 'sublime-text'
 cask 'transmit'
 cask 'vagrant'
 cask 'imageoptim'
+cask '1password'
+cask 'visual-studio-code'
 
 # Quicklook
 cask 'qlcolorcode'
