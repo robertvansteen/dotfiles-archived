@@ -21,17 +21,19 @@ brew 'trash' # Manage the Trash bin
 brew 'tree' # List directories in a tree structure
 brew 'zlib' # Needed for Memcached
 brew 'zsh'
-brew 'zsh-completions'
+brew 'antigen'
 brew 'svn' # Needed for fonts, see: https://github.com/Homebrew/homebrew-cask/issues/80695
 
 # Development
 brew 'php'
-brew 'php@7.3'
+brew 'php@7.4'
 brew 'mysql'
 brew 'nginx'
 brew 'node'
 brew 'redis'
 brew 'ruby'
+brew 'docker'
+brew 'docker-machine'
 
 # Utilities
 brew 'legit'
@@ -58,6 +60,8 @@ cask 'vagrant'
 cask 'imageoptim'
 cask '1password'
 cask 'visual-studio-code'
+cask 'hyper'
+cask 'virtualbox'
 
 # Quicklook
 cask 'qlcolorcode'
