@@ -7,18 +7,23 @@ export DOTFILES=$HOME/dotfiles
 # Path to oh-my-zsh installation
 export ZSH=$HOME/.oh-my-zsh
 
-# Minimal - Theme Settings
-export MNML_INSERT_CHAR="$"
-export MNML_PROMPT=(mnml_git mnml_keymap)
-export MNML_RPROMPT=('mnml_cwd 20')
-
-ZSH_THEME="minimal"
-
 HIST_STAMPS="dd/mm/yyyy"
 
 ZSH_CUSTOM=$DOTFILES/zsh
 
-plugins=(git composer node npm github zsh-autosuggestions zsh-syntax-highlighting)
+source /usr/local/share/antigen/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle osx
+antigen bundle git
+antigen bundle laravel
+antigen bundle yarn
+antigen bundle command-not-found
+
+antigen theme vercel/zsh-theme
+
+antigen apply
 
 # Load all the things.
 source $ZSH/oh-my-zsh.sh

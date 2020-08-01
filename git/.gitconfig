@@ -3,7 +3,7 @@
 [user]
 	email = hello@rovansteen.nl 
 	name = Robert van Steen 
-	signingkey = AFC3783F7F16AAAF
+	signingkey = 9ACAF8AD03EF2788BCC2ED83F7F15AAAD8DCE265
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
 [commit]

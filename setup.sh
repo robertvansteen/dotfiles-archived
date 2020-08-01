@@ -15,7 +15,7 @@ sudo softwareupdate --install --all
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Update Homebrew recipes
@@ -57,18 +57,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc > /dev/null 2>&1
 ln -sf ./dotfiles/zsh/.zshrc $HOME/.zshrc
-
-# Install zsh-syntax-highlighting
-rm -rf ./zsh/plugins/zsh-syntax-highlighting > /dev/null 2>&1
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./zsh/plugins/zsh-syntax-highlighting
-
-# Install zsh autosuggestions
-# rm -rf ./zsh/plugins/zsh-autosuggestions > /dev/null 2>&1
-# git clone git://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-autosuggestions
-
-# Install zsh you-should-use
-rm -rf ./zsh/plugins/you-should-use > /dev/null 2>&1
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ./zsh/plugins/you-should-use
 
 # Set up git config
 rm -f $HOME/.gitconfig > /dev/null 2>&1
