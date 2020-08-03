@@ -4,6 +4,7 @@ tap 'homebrew/cask-eid'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
+tap 'mongodb/brew'
 
 # Binaries
 brew 'awscli'
@@ -34,6 +35,9 @@ brew 'redis'
 brew 'ruby'
 brew 'docker'
 brew 'docker-machine'
+brew 'mongodb'
+brew 'mongodb-community@4.4'
+brew 'postgresql'
 
 # Utilities
 brew 'legit'
@@ -62,6 +66,9 @@ cask '1password'
 cask 'visual-studio-code'
 cask 'hyper'
 cask 'virtualbox'
+cask 'keybase'
+cask 'notion'
+cask 'spotify'
 
 # Quicklook
 cask 'qlcolorcode'

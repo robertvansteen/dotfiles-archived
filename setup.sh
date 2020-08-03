@@ -54,6 +54,12 @@ sudo chsh -s $(which zsh)
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
+# Install yarn
+npm install -g yarn
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc > /dev/null 2>&1
 ln -sf ./dotfiles/zsh/.zshrc $HOME/.zshrc
